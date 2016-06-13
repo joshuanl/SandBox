@@ -16,5 +16,29 @@ public class SandBox{
 
 
 	}//end of main
+		public void addComp(){
+		bottomPanel.add(nameLabel);
+		bottomPanel.add(nameJTF);
+		bottomPanel.add(sendButton);
+		topPanel.add(subjectLabel);
+		topPanel.add(subjectJCB);
+		centerPanel.add(messageJTA, BorderLayout.CENTER);
+		
+		add(topPanel, BorderLayout.NORTH);
+		add(centerPanel, BorderLayout.CENTER);
+		add(bottomPanel, BorderLayout.SOUTH);
+	}//end of add comp
+	
+	public void closeApp(){
+		JOptionPane.showMessageDialog(centerPanel, "Email Sent", "Email Confirmaion", JOptionPane.PLAIN_MESSAGE);
+		this.dispose();
+		
+	}//end of message sent
+	
+	public static void main(String args[]){
+		new Email();
+	}//end of main
+}//end of  class
+
 }//end of class
 
