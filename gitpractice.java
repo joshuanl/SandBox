@@ -3,8 +3,8 @@ package default;
 public class SandBox{
 	public static void main(String[] args) {
 
-		int num1 = 10;
-		int num2 = 20;		
+		double num1 = 10;
+		double num2 = 20;		
 
 
 		System.out.println(num1);
