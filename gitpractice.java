@@ -7,11 +7,14 @@ public class SandBox{
 		double num2 = 20;		
 
 
-		System.out.println(num1);
-		System.out.println(num2);
-		num2 = Math.sqrt(num1);
+		
+		num2 = Math.pow(num2, num1);
 		System.out.println("welp");
 		//edit made from the web 
+		System.out.println(num1);
+		System.out.println(num2);
+
+
 	}//end of main
 }//end of class
 
