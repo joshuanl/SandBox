@@ -7,14 +7,15 @@
 #
 
 # define the C compiler to use
-CC = gcc
+#               Use 'gcc' for C and 'g++' for cpp
+CC = g++
 
 # define any compile-time flags
 CFLAGS = -Wall -g
 
 # define any directories containing header files other than /usr/include
 #
-INCLUDES = include/testHeader1.h include/testHeader2.h
+INCLUDES = include/testHeader1.h
 
 # define library paths in addition to /usr/lib
 #   if I wanted to include libraries not in /usr/lib I'd specify
@@ -27,7 +28,7 @@ LFLAGS = -L/home/newhall/lib  -L../lib
 LIBS = -lmylib -lm
 
 # define the C source files
-SRCS = src/main.c
+SRCS = src/main.cpp
 
 # define the C object files
 #
@@ -40,7 +41,7 @@ SRCS = src/main.c
 OBJS = $(SRCS:.c=.o)
 
 # define the executable file
-MAIN = mycc
+TARGET = test
 
 #
 # The following part of the makefile is generic; it can be used to
@@ -50,11 +51,11 @@ MAIN = mycc
 
 .PHONY: depend clean
 
-all: $(MAIN)
-		@echo  Simple compiler named mycc has been compiled
+all: $(TARGET)
+		@echo  Target: '$(TARGET)' has been compiled
 
-$(MAIN): $(OBJS)
-		$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS)
+$(TARGET): $(OBJS)
+		$(CC) $(CFLAGS) $(INCLUDES) -o $(TARGET) $(OBJS)
 
 # this is a suffix replacement rule for building .o's from .c's
 # it uses automatic variables $<: the name of the prerequisite of
@@ -64,7 +65,7 @@ $(MAIN): $(OBJS)
 		$(CC) $(CFLAGS) $(INCLUDES) -c $<  -o $@
 
 clean:
-		$(RM) *.o *~ $(MAIN)
+		$(RM) *.o *~ $(TARGET)
 
 depend: $(SRCS)
 		makedepend $(INCLUDES) $^
