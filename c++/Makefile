@@ -20,7 +20,7 @@ INCLUDES = include/testHeader1.h
 # define library paths in addition to /usr/lib
 #   if I wanted to include libraries not in /usr/lib I'd specify
 #   their path using -Lpath, something like:
-LFLAGS = -L/home/newhall/lib  -L../lib
+LFLAGS = -L/home/jnlcr/lib  -L../lib
 
 # define any libraries to link into executable:
 #   if I want to link in libraries (libx.so or libx.a) I use the -llibname
@@ -70,4 +70,4 @@ clean:
 depend: $(SRCS)
 		makedepend $(INCLUDES) $^
 
-# DO NOT DELETE THIS LINE -- make depend needs it
+# This is needed for make depend
